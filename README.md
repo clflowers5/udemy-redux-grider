@@ -1,4 +1,4 @@
-Working through  https://www.udemy.com/react-redux/
+Quick implementation of MapQuest.js as a React component.
 
 ```
 npm install

@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
-import './mapquest-js';
-import './mapquest-js.css';
+import '../lib/mapquest-js';
+import '../lib/mapquest-js.css';
 
 class MapQuest extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { ...props };
+  }
+
   render() {
     const mapStyle = {
-      height: 500,
-      width: 1000
+      height: this.state.height,
+      width: this.state.width
     };
     return (
       <div id="map" style={mapStyle}>
-        map here...
+        <p style={{textAlign: 'center'}}>Map loading...</p>
       </div>
     );
   }
 
   componentDidMount() {
-    L.mapquest.key = '1RtKpE7XdjkrI8O9am0gFO217SObQRrZ';
+    L.mapquest.key = this.state.apiKey;
 
     L.mapquest.map('map', {
-      center: [37.7749, -122.4194],
-      layers: L.mapquest.tileLayer('map'),
-      zoom: 12
+      center: this.state.center,
+      layers: L.mapquest.tileLayer(this.state.baseLayer),
+      zoom: this.state.zoom
     });
   }
 }

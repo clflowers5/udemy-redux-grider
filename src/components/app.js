@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import BookList from '../containers/bookList';
 import MapQuest from './mapquest';
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        {/*<BookList />*/}
         <h1>MapQuest JS as a React Component</h1>
-        <MapQuest/>
+        <MapQuest
+          height={500}
+          width={1000}
+          center={[37.7749, -122.4194]}
+          baseLayer={'dark'}
+          zoom={12}
+          apiKey={''}
+        />
       </div>
     );
   }
